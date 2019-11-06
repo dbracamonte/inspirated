@@ -7,12 +7,15 @@ const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
     backgroundImage: `url(${bgLgImage})`,
-    backgroundPosition: 'center',
+    backgroundPosition: 'right',
     backgroundSize: 'cover',
     backgroundColor: '#000',
     backgroundRepeat: 'no-repeat',
     display: 'flex',
-    flexGrow: 1
+    flexGrow: 1,
+    [theme.breakpoints.up('sm')]: {
+      backgroundPosition: 'center',
+    },
   },
   grid: {
     textAlign: 'center',
@@ -29,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     color: '#FFF',
   },
   alternativeText: {
-    color: '#E9C515',
+    color: '#E9C419',
     fontWeight: 500
   },
   link: {
@@ -64,7 +67,7 @@ function HomePage() {
               </a>
             </Typography>
             <br />
-            <Typography variant="h3" className={classes.primaryText}>
+            <Typography variant="h3" className={classes.alternativeText}>
               23 NOVIEMBRE
             </Typography>
             <br />
