@@ -14,7 +14,8 @@ import { Grid, Typography, Chip } from '@material-ui/core';
 import RegistryForm from '../../components/registryForm';
 import { getRate } from '../../services/firebase/api';
 import { formatMoney } from '../../assets/utils';
-import Success from '../../components/registryForm/Success'
+import Success from '../../components/registryForm/Success';
+import logo from '../../assets/img/logo-inspirated.png';
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -87,6 +88,9 @@ const useStyles = makeStyles(theme => ({
     body: {
       backgroundColor: theme.palette.common.white,
     },
+  },
+  root: {
+    paddingTop: theme.spacing(1),
   },
   paper: {
     marginTop: theme.spacing(8),
@@ -168,10 +172,10 @@ export default function RegistryStepper() {
         </>
       ) : (
           <div className={classes.paper}>
-            <Typography component="h1" variant="h5">
-              INSPIRATED
-            </Typography>
-            <Stepper alternativeLabel activeStep={activeStep} connector={<QontoConnector />}>
+            <Grid item xs={12}>
+              <img src={logo} alt='inspirated' width={200} />
+            </Grid>
+            <Stepper alternativeLabel className={classes.root} activeStep={activeStep} connector={<QontoConnector />}>
               {steps.map(label => (
                 <Step key={label}>
                   <StepLabel StepIconComponent={QontoStepIcon}>{label}</StepLabel>
