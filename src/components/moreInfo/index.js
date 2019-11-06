@@ -114,10 +114,10 @@ function MoreInfo(props) {
           <b>Referencia: </b> {selected.payment.reference}
         </Typography>
         {
-          selected.fileURL &&
+          selected.payment.fileURL &&
           <>
             <Typography gutterBottom>
-              <b>Capture de transferencia: </b> <PictureModal fileURL={selected.fileURL} />
+              <b>Capture de transferencia: </b> <PictureModal fileURL={selected.payment.fileURL} />
             </Typography>
           </>
         }

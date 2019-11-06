@@ -338,16 +338,20 @@ class TableRegistered extends React.Component {
     const { tab } = this.state;
 
     let rows = [
-      { id: 'name', numeric: false, disablePadding: false, label: 'Nombre', show: true, },
-      { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true, },
-      { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true, },
+      { id: 'name', numeric: false, disablePadding: false, label: 'Nombre', show: true },
+      { id: 'age', numeric: false, disablePadding: false, label: 'Edad.', show: true },
+      { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true },
+      { id: 'Company', numeric: false, disablePadding: false, label: 'Empresa.', show: true },
+      { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true },
     ];
 
     if (tab === 1) {
       rows = [
-        { id: 'name', numeric: false, disablePadding: false, label: 'Nombre', show: true, },
-        { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true, },
-        { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true, },
+        { id: 'name', numeric: false, disablePadding: false, label: 'Nombre', show: true },
+        { id: 'age', numeric: false, disablePadding: false, label: 'Edad.', show: true },
+        { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true },
+        { id: 'Company', numeric: false, disablePadding: false, label: 'Empresa.', show: true },
+        { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true },
       ];
     }
 
@@ -483,7 +487,9 @@ class TableRegistered extends React.Component {
                             <Radio checked={isSelected} />
                           </TableCell>
                           <TableCell>{n.firstName} {n.lastName}</TableCell>
+                          <TableCell>{n.age}</TableCell>
                           <TableCell>{n.identity}</TableCell>
+                          <TableCell>{n.company}</TableCell>
                           <TableCell>{n.date}</TableCell>
                         </TableRow>
                       );
