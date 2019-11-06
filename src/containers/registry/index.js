@@ -136,7 +136,6 @@ export default function RegistryStepper() {
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
-    console.log('AQUI')
   };
 
   const handleBack = () => {
@@ -188,7 +187,7 @@ export default function RegistryStepper() {
               </Grid>
             </Grid>
             <RegistryForm step={activeStep} handleNext={handleNext} handleBack={handleBack} />
-            {activeStep !== steps.length - 1 &&
+            {/* {activeStep !== steps.length - 1 &&
               <>
                 <Grid container spacing={3}>
                   <Grid item xs={6}>
@@ -214,7 +213,7 @@ export default function RegistryStepper() {
                   </Grid>
                 </Grid>
               </>
-            }
+            } */}
           </div>
         )}
     </Container >

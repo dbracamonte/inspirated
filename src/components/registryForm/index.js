@@ -125,7 +125,7 @@ export class RegistrationForm extends Component {
 
   render() {
 
-    const { classes, step, handleBack } = this.props;
+    const { classes, step, handleBack, handleNext } = this.props;
     const { paymentMethodType, paymentAmount, paymentDate, paymentRef, issuingBank, receivingBank, fileURL, tickets, acceptTerms, firstName, lastName, age, email, identity, phoneNumber, company, position, autoFill, whereMeetUs, specification, paymentMethod, bank, reference } = this.state;
     const values = { paymentMethodType, paymentAmount, paymentDate, paymentRef, issuingBank, receivingBank, fileURL, tickets, acceptTerms, firstName, lastName, age, email, identity, phoneNumber, company, position, autoFill, whereMeetUs, specification, paymentMethod, bank, reference };
     console.log(this.state);
@@ -139,6 +139,9 @@ export class RegistrationForm extends Component {
                 return (
                   <FormUserDetails
                     handleChange={this.handleChange}
+                    handleNext={handleNext}
+                    handleBack={handleBack}
+                    step={step}
                     values={values}
                   />
                 );
@@ -146,6 +149,8 @@ export class RegistrationForm extends Component {
                 return (
                   <FormHelpToKnowYou
                     handleChange={this.handleChange}
+                    handleNext={handleNext}
+                    handleBack={handleBack}
                     values={values}
                   />
                 );
@@ -153,6 +158,8 @@ export class RegistrationForm extends Component {
                 return (
                   <FormPayment
                     handleChange={this.handleChange}
+                    handleNext={handleNext}
+                    handleBack={handleBack}
                     handleFileURL={this.handleFileURL}
                     values={values}
                   />

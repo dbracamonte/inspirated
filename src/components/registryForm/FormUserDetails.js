@@ -25,7 +25,7 @@ const styles = () => ({
 
 function FormMain(props) {
 
-  const { values, handleChange, classes } = props;
+  const { values, handleChange, classes, handleNext, handleBack, step } = props;
   const { rateDayBs, rateDayUSD, firstName, lastName, age, identity, phoneNumber, email, paymentMethodType, company, position } = values;
   const [open, setOpen] = useState(false);
 
@@ -37,8 +37,17 @@ function FormMain(props) {
     setOpen(false);
   }
 
+  const handleContinue = () => {
+    if (!firstName || !lastName || !age || !identity || !phoneNumber || !email || !company) {
+      setOpen(true);
+      return;
+    }
+    handleNext();
+  }
+
   return (
     <React.Fragment>
+      <Grid container spacing={3}>
       {/* <Grid item xs={12}>
         <Typography variant="h6">
           Datos del responsable
@@ -147,27 +156,37 @@ function FormMain(props) {
           defaultValue={position}
         />
       </Grid>
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        open={open}
-        autoHideDuration={5000}
-        onClose={handleClose}
-        ContentProps={{
-          'aria-describedby': 'message-id',
-        }}
-        message={<span id="message-id">Los campos con asterisco (*) con obligatorios.</span>}
-        action={[
-          <Button key="omit" color="secondary" size="small" onClick={handleClose}>
-            Omitir
-          </Button>
-        ]}
-      />
-    </React.Fragment>
+      <Grid item xs={12}>
+        <Button
+          fullWidth
+          variant="contained"
+          color="primary"
+          onClick={handleContinue}
+        >
+          Continuar
+        </Button>
+      </Grid>
+    </Grid>
+    <Snackbar
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'center',
+      }}
+      open={open}
+      autoHideDuration={5000}
+      onClose={handleClose}
+      ContentProps={{
+        'aria-describedby': 'message-id',
+      }}
+      message={<span id="message-id">Los campos con asterisco (*) con obligatorios.</span>}
+      action={[
+        <Button key="omit" color="secondary" size="small" onClick={handleClose}>
+          Omitir
+        </Button>
+      ]}
+    />
+  </React.Fragment>
   );
-
 }
 
 export default withStyles(styles)(FormMain);

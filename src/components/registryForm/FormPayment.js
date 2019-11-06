@@ -27,7 +27,7 @@ const paymentMethods = ['Transferencia', 'Pago móvil'];
 
 function FormPayment(props) {
 
-  const { values, handleChange, handleFileURL, classes } = props;
+  const { values, handleChange, handleFileURL, handleNext, handleBack, classes } = props;
   const { bank, paymentMethod, reference } = values;
   const [open, setOpen] = useState(false);
 
@@ -44,6 +44,14 @@ function FormPayment(props) {
     }
 
     setOpen(false);
+  }
+
+  const handleContinue = () => {
+    if (!paymentMethod || !bank || !reference) {
+      setOpen(true);
+      return;
+    }
+    handleNext();
   }
 
   return (
@@ -145,6 +153,25 @@ function FormPayment(props) {
       </Grid>
       <Grid item xs={12}>
         <UploadFile onUpload={handleFileURL} />
+      </Grid>
+      <Grid item xs={6}>
+        <Button
+          fullWidth
+          variant="contained"
+          onClick={handleBack}
+        >
+          Volver
+        </Button>
+      </Grid>
+      <Grid item xs={6}>
+        <Button
+          fullWidth
+          variant="contained"
+          color="primary"
+          onClick={handleContinue}
+        >
+          Continuar
+        </Button>
       </Grid>
       <Snackbar
         anchorOrigin={{
