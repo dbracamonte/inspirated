@@ -55,10 +55,6 @@ function Summary(props) {
                 <TableCell>Edad</TableCell>
                 <TableCell>{age}</TableCell>
               </TableRow>
-              <TableRow> {/* key={identity} */}
-                <TableCell>Cédula</TableCell>
-                <TableCell>{identity}</TableCell>
-              </TableRow>
               <TableRow> {/* key={email} */}
                 <TableCell>Correo electrónico</TableCell>
                 <TableCell>{email}</TableCell>

@@ -86,9 +86,9 @@ function MoreInfo(props) {
         <Typography gutterBottom>
           <b>Edad: </b> {selected.age}
         </Typography>
-        <Typography gutterBottom>
+        {/* <Typography gutterBottom>
           <b>Cédula: </b> {selected.identity}
-        </Typography>
+        </Typography> */}
         <Typography gutterBottom>
           <b>Teléfono: </b> {selected.phoneNumber}
         </Typography>

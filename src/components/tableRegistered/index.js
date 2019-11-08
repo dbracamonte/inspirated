@@ -157,10 +157,7 @@ class TableRegistered extends React.Component {
     }
   }
 
-  handleChangeDates = e => {
-    // console.log(`handleChangeDates ${e.target.name} ${e.target.value}`);
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  handleChangeDates = e => this.setState({ [e.target.name]: e.target.value });
 
   handleCheckChange = e => this.setState({ [e.target.name]: e.target.checked });
 
@@ -204,13 +201,9 @@ class TableRegistered extends React.Component {
     this.setState({ selected: selected === id ? '' : id });
   };
 
-  handleChangePage = (event, page) => {
-    this.setState({ page });
-  };
+  handleChangePage = (event, page) => this.setState({ page });
 
-  handleChangeRowsPerPage = event => {
-    this.setState({ rowsPerPage: event.target.value });
-  };
+  handleChangeRowsPerPage = event => this.setState({ rowsPerPage: event.target.value });
 
   handleClickBtnTool = (action) => {
     if (action === 'more-info') {
@@ -260,9 +253,7 @@ class TableRegistered extends React.Component {
       } else {
         const initialDateFormat = getCurrentDate('-', initialDate);
         const finalDateFormat = getCurrentDate('-', finalDate);
-
-        // console.log({ initialDateFormat }, { finalDateFormat });
-
+        
         filteredData = filteredData.filter(item => {
           const validation =
             new Date(getCurrentDate('-', item.date)).getTime() >= new Date(initialDateFormat).getTime() &&
@@ -278,9 +269,7 @@ class TableRegistered extends React.Component {
 
   isSelected = id => this.state.selected === id;
 
-  handleFilter = e => {
-    this.setState({ filter: e.target.value, page: 0, });
-  }
+  handleFilter = e => this.setState({ filter: e.target.value, page: 0, });
 
   handleExportCSV = () => {
 
@@ -340,7 +329,7 @@ class TableRegistered extends React.Component {
     let rows = [
       { id: 'name', numeric: false, disablePadding: false, label: 'Nombre', show: true },
       { id: 'age', numeric: false, disablePadding: false, label: 'Edad.', show: true },
-      { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true },
+      // { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true },
       { id: 'Company', numeric: false, disablePadding: false, label: 'Empresa.', show: true },
       { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true },
     ];
@@ -349,7 +338,7 @@ class TableRegistered extends React.Component {
       rows = [
         { id: 'name', numeric: false, disablePadding: false, label: 'Nombre', show: true },
         { id: 'age', numeric: false, disablePadding: false, label: 'Edad.', show: true },
-        { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true },
+        // { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true },
         { id: 'Company', numeric: false, disablePadding: false, label: 'Empresa.', show: true },
         { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true },
       ];
@@ -369,7 +358,7 @@ class TableRegistered extends React.Component {
     const dataSelected = data.find(({ id }) => selected === id);
 
     let rows = this.getRows();
-    console.log('STATE', this.state);
+    console.log('TableRegisted STATE', this.state);
 
     return (
       <>
@@ -488,7 +477,7 @@ class TableRegistered extends React.Component {
                           </TableCell>
                           <TableCell>{n.firstName} {n.lastName}</TableCell>
                           <TableCell>{n.age}</TableCell>
-                          <TableCell>{n.identity}</TableCell>
+                          {/* <TableCell>{n.identity}</TableCell> */}
                           <TableCell>{n.company}</TableCell>
                           <TableCell>{n.date}</TableCell>
                         </TableRow>

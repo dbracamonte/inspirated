@@ -75,7 +75,7 @@ function HomePage() {
               SALÓN DE EVENTOS DEL
             </Typography>
             <Typography variant="h4" className={classes.primaryText}>
-              HOTEL RENNAISSANCE
+              HOTEL RENAISSANCE
             </Typography>
             <Typography variant="h4" className={classes.alternativeText}>
               CARACAS

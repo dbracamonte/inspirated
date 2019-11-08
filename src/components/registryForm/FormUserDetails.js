@@ -38,7 +38,7 @@ function FormMain(props) {
   }
 
   const handleContinue = () => {
-    if (!firstName || !lastName || !age || !identity || !phoneNumber || !email || !company) {
+    if (!firstName || !lastName || !age || !phoneNumber || !email) {
       setOpen(true);
       return;
     }
@@ -81,7 +81,7 @@ function FormMain(props) {
           defaultValue={lastName}
         />
       </Grid>
-      <Grid item xs={4} sm={2}>
+      <Grid item xs={3} sm={4}>
         <TextField
           variant="outlined"
           required
@@ -94,20 +94,7 @@ function FormMain(props) {
           defaultValue={age}
         />
       </Grid>
-      <Grid item xs={8} sm={5}>
-        <TextField
-          variant="outlined"
-          required
-          fullWidth
-          id="identity"
-          label="Cédula de identidad"
-          name="identity"
-          type="number"
-          onChange={handleChange}
-          defaultValue={identity}
-        />
-      </Grid>
-      <Grid item xs={12} sm={5}>
+      <Grid item xs={9} sm={8}>
         <TextField
           variant="outlined"
           required
@@ -136,7 +123,6 @@ function FormMain(props) {
       <Grid item xs={12} sm={6}>
         <TextField
           variant="outlined"
-          required
           fullWidth
           id="company"
           label="Empresa"

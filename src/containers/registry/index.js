@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Container from '@material-ui/core/Container';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Check from '@material-ui/icons/Check';
-import StepConnector from '@material-ui/core/StepConnector';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Grid, Typography, Chip } from '@material-ui/core';
-import RegistryForm from '../../components/registryForm';
-import { getRate } from '../../services/firebase/api';
-import { formatMoney } from '../../assets/utils';
-import Success from '../../components/registryForm/Success';
-import logo from '../../assets/img/logo-inspirated.png';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
+import {
+  Container,
+  Grid,
+  Typography,
+  Chip,
+  Stepper,
+  Step,
+  StepLabel,
+  StepConnector,
+  Button,
+  CssBaseline
+} from "@material-ui/core";
+import Check from "@material-ui/icons/Check";
+import RegistryForm from "../../components/registryForm";
+import { getRate } from "../../services/firebase/api";
+import { formatMoney } from "../../assets/utils";
+import Success from "../../components/registryForm/Success";
+import logo from "../../assets/img/logo-inspirated.png";
 
 const QontoConnector = withStyles({
   alternativeLabel: {

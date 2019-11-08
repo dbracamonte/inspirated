@@ -93,7 +93,7 @@ export class RegistrationForm extends Component {
       firstName,
       lastName,
       age,
-      identity,
+      // identity,
       phoneNumber,
       email,
       company,
@@ -128,7 +128,6 @@ export class RegistrationForm extends Component {
     const { classes, step, handleBack, handleNext } = this.props;
     const { paymentMethodType, paymentAmount, paymentDate, paymentRef, issuingBank, receivingBank, fileURL, tickets, acceptTerms, firstName, lastName, age, email, identity, phoneNumber, company, position, autoFill, whereMeetUs, specification, paymentMethod, bank, reference } = this.state;
     const values = { paymentMethodType, paymentAmount, paymentDate, paymentRef, issuingBank, receivingBank, fileURL, tickets, acceptTerms, firstName, lastName, age, email, identity, phoneNumber, company, position, autoFill, whereMeetUs, specification, paymentMethod, bank, reference };
-    console.log(this.state);
 
     return (
       <form className={classes.form}>
@@ -174,12 +173,6 @@ export class RegistrationForm extends Component {
                   />
                 );
               case 4:
-                return <Confirm
-                  nextStep={this.nextStep}
-                  prevStep={this.prevStep}
-                  values={values}
-                />;
-              case 5:
                 if (this.error) {
                   return <Error />;
                 }
