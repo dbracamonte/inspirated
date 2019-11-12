@@ -83,7 +83,7 @@ function ConfirmChangeStatus(props) {
         Confirmar Acción de&nbsp;
         <b>{status === 'rejected' && 'Rechazar'}</b>
         <b>{status === 'approved' && 'Aprobar'}</b>
-        <b>{status === 'delivered' && 'Manillas Entregadas'}</b>
+        <b>{status === 'delivered' && 'Manilla Entregada'}</b>
       </DialogTitle>
       <DialogContent dividers>
         {status === 'rejected' &&
@@ -101,24 +101,18 @@ function ConfirmChangeStatus(props) {
             <Typography gutterBottom>
               2) Todos los datos concuerdan y han sidos comprobados.
             </Typography>
-            {/* <Typography gutterBottom>
-              3) El inscrito va a poder pasar buscando sus manillas en los próximos días.
-            </Typography> */}
           </>}
         {status === 'delivered' && (
           <>
             <Typography gutterBottom>
-              ¿Estás seguro de que le entregarás la manillas al responsable de esta inscripción? Esta acción es irrebersible. Al aceptar confirmas que:
+              ¿Estás seguro de que le entregará la manilla al responsable de esta inscripción? Esta acción es irrebersible. Al aceptar confirmas que:
             </Typography>
             <Typography gutterBottom>
-              1) El responsable está presente para retirar las manillas
+              1) El responsable está presente para retirar la manilla
             </Typography>
             <Typography gutterBottom>
               2) Se han verificado los datos del responsable y concuerdan con los registrados en la inscripción
             </Typography>
-            {/* <Typography gutterBottom>
-              3) El responsable presentó su código de confirmación y este concordó con el código de confirmación de esta inscripción
-            </Typography> */}
           </>
         )}
         {status === 'rejected' && (
@@ -142,7 +136,7 @@ function ConfirmChangeStatus(props) {
         <Button onClick={handleAccept} color="primary">
           {status === 'rejected' && 'Rechazar'}
           {status === 'approved' && 'Aprobar'}
-          {status === 'delivered' && 'Manillas Entregadas'}
+          {status === 'delivered' && 'Manilla Entregada'}
         </Button>
       </DialogActions>
     </Dialog>

@@ -86,9 +86,6 @@ function MoreInfo(props) {
         <Typography gutterBottom>
           <b>Edad: </b> {selected.age}
         </Typography>
-        {/* <Typography gutterBottom>
-          <b>Cédula: </b> {selected.identity}
-        </Typography> */}
         <Typography gutterBottom>
           <b>Teléfono: </b> {selected.phoneNumber}
         </Typography>
@@ -102,10 +99,18 @@ function MoreInfo(props) {
           <b>Cargo: </b> {selected.position}
         </Typography>
         {
-          selected.code &&
+          selected.status === 'approved' && selected.code &&
           <>
             <Typography gutterBottom>
               <b>Código: </b> {selected.code}
+            </Typography>
+          </>
+        }
+        {
+          selected.status === 'rejected' && selected.comment &&
+          <>
+            <Typography gutterBottom>
+              <b>Comentario: </b> {selected.comment}
             </Typography>
           </>
         }
@@ -146,7 +151,7 @@ function MoreInfo(props) {
         )}
         {(selected.status === 'approved' && !selected.delivered) && (
           <Button onClick={handleDelivered} color="primary">
-            Manillas Entregadas
+            Manilla Entregada
           </Button>
         )}
       </DialogActions>
