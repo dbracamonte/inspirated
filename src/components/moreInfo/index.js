@@ -99,8 +99,16 @@ function MoreInfo(props) {
           <b>Empresa: </b> {selected.company}
         </Typography>
         <Typography gutterBottom>
-          <b>Cardo: </b> {selected.position}
+          <b>Cargo: </b> {selected.position}
         </Typography>
+        {
+          selected.code &&
+          <>
+            <Typography gutterBottom>
+              <b>Código: </b> {selected.code}
+            </Typography>
+          </>
+        }
         <Typography className={classes.textAdmin} variant="h6">
           <b>Pago</b>
         </Typography>

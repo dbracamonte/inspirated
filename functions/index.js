@@ -15,8 +15,8 @@ admin.initializeApp();
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'bracamontedar@gmail.com',
-    pass: 'debo0786'
+    user: 'convenciong12.vzla@gmail.com',
+    pass: 'convenciong12-2019-admin'
   }
 });
 
@@ -107,8 +107,6 @@ exports.onChangeStatusIns = firestore
     const afterValue = change.after.data();
     const beforeValue = change.before.data();
 
-    console.log("afterValue", afterValue);
-    console.log("beforeValue", beforeValue);
     console.log("Processing data in onChangeStatusIns");
 
     if (beforeValue.status === 'waiting' && ['approved', 'rejected'].includes(afterValue.status)) {
@@ -123,9 +121,6 @@ exports.onChangeStatusIns = firestore
         dest: dest || '',
         code: confirmCode,
         name: `${afterValue.firstName} ${afterValue.lastName}`,
-        // type: afterValue.paymentMethod.type,
-        // amount: afterValue.paymentMethod.amount,
-        // comment: afterValue.comment || 'Sin comentarios',
       };
 
       sendMailNode(templates(afterValue.status, dataEmail), (err) => {

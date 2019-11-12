@@ -136,13 +136,14 @@ class TableRegistered extends React.Component {
   componentWillMount() {
     onGetRegistered('registered', data => {
       const registered = data.docs.map(doc => {
-        const { firstName, lastName, age, identity, ...other } = doc.data();
+        const { firstName, lastName, age, identity, code, ...other } = doc.data();
         return {
           id: doc.id,
           firstName,
           lastName,
           age,
           identity,
+          code,
           ...other
         }
       });
@@ -229,16 +230,15 @@ class TableRegistered extends React.Component {
     const filter = this.state.filter.toLowerCase();
     let filteredData = [];
 
-
     // Primer filtro por tab
     filteredData = data.filter(({ status }) => status === statuses[tab]);
     // Segundo filtro por busqueda
-    filteredData = filteredData.filter(({ firstName, lastName, date, age, identity }) => {
+    filteredData = filteredData.filter(({ firstName, lastName, date, age, code }) => {
       if (
         `${firstName} ${lastName}`.toLowerCase().includes(filter) ||
         date.toLowerCase().includes(filter) ||
         age.toString().includes(filter) ||
-        identity.toLowerCase().includes(filter)
+        (code && code.toLowerCase().includes(filter))
       ) {
         return true;
       } else {
@@ -338,9 +338,9 @@ class TableRegistered extends React.Component {
       rows = [
         { id: 'name', numeric: false, disablePadding: false, label: 'Nombre', show: true },
         { id: 'age', numeric: false, disablePadding: false, label: 'Edad.', show: true },
-        // { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true },
         { id: 'Company', numeric: false, disablePadding: false, label: 'Empresa.', show: true },
         { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true },
+        { id: 'code', numeric: false, disablePadding: false, label: 'Código', show: true },
       ];
     }
 
@@ -358,7 +358,7 @@ class TableRegistered extends React.Component {
     const dataSelected = data.find(({ id }) => selected === id);
 
     let rows = this.getRows();
-    console.log('TableRegisted STATE', this.state);
+    // console.log('TableRegisted STATE', this.state);
 
     return (
       <>
@@ -480,6 +480,7 @@ class TableRegistered extends React.Component {
                           {/* <TableCell>{n.identity}</TableCell> */}
                           <TableCell>{n.company}</TableCell>
                           <TableCell>{n.date}</TableCell>
+                          {tab === 1 && (<TableCell>{n.code}</TableCell>)}
                         </TableRow>
                       );
                     })

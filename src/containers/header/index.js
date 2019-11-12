@@ -10,6 +10,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import { AuthContext } from '../../context/auth';
+import imgDefaultUser from '../../assets/img/imgDefaultUser.jpg';
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -100,7 +101,7 @@ class Header extends Component {
                 <IconButton color="inherit" onClick={logOut} className={classes.iconButtonAvatar}>
                   <Avatar
                     className={classes.avatar}
-                    src="ImageDefaultUser.png"
+                    src={imgDefaultUser}
                   />
                 </IconButton>
               </Grid>

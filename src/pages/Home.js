@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import bgLgImage from '../assets/img/main-bg-lg.jpg';
 import InputIcon from '@material-ui/icons/Input';
 import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -93,11 +92,9 @@ function HomePage() {
         </Grid>
       </Grid>
       <Link to={`/login`}>
-        <Tooltip title="Admin">
-          <IconButton aria-label="admin">
-            <InputIcon />
-          </IconButton>
-        </Tooltip>
+        <IconButton aria-label="admin">
+          <InputIcon />
+        </IconButton>
       </Link>
     </div>
   );

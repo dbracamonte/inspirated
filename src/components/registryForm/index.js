@@ -93,7 +93,6 @@ export class RegistrationForm extends Component {
       firstName,
       lastName,
       age,
-      // identity,
       phoneNumber,
       email,
       company,

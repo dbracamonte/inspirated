@@ -21,6 +21,9 @@ const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 320,
   },
+  link: {
+    textDecoration: 'none'
+  }
 }));
 
 function Summary(props) {
@@ -102,7 +105,11 @@ function Summary(props) {
                 fileURL &&
                 <TableRow> {/* key={fileURL} */}
                   <TableCell>Imagen</TableCell>
-                  <TableCell>{fileURL}</TableCell>
+                  <TableCell>
+                    <a href={fileURL} target='_blank' className={classes.link}>
+                      Ver
+                    </a>
+                  </TableCell>
                 </TableRow>
               }
             </TableBody>
