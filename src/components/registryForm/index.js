@@ -106,6 +106,7 @@ export class RegistrationForm extends Component {
         reference,
         fileURL
       },
+      code: null,
       status: "waiting"
     })
       .then(async () => {
