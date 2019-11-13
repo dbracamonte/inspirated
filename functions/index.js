@@ -5,19 +5,19 @@ const cors = require('cors')({ origin: true });
 
 admin.initializeApp();
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'convenciong12.vzla@gmail.com',
-    pass: 'convenciong12-2019-admin'
-  }
-  // host: "smtp.hostinger.com",
-  // port: 587,
-  // secure: true, // use TLS
-  // auth: {
-  //   user: "info",
-  //   pass: "password"
+const transporter = nodemailer.createTransport({ 
+  // service: 'gmail',
+  //   auth: {
+  //   user: "inspirated.darioisea@gmail.com",
+  //     pass: "inspira-ted."
   // }
+  host: "smtp.hostinger.com",
+  port: 587,
+  secure: true, // use TLS
+  auth: {
+    user: "info@darioisea.com",
+    pass: "123456789"
+  }
 });
 
 exports.sendMail = https.onRequest((req, res) => {
@@ -127,7 +127,7 @@ function templates(status, { to, from, subject, html, ...other }) {
                 <tr>
                   <td align="Justify" style="color: #000; font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
                     <div style="line-height: 24px">
-                      Nos vemos el 23 de noviembre en el HOTEL RENAISSANCE de CARACAS para que puedas disfrutar de INSPIRATED ¡Vide la experiencia!
+                      Nos vemos el 23 de noviembre en el <b>HOTEL RENAISSANCE</b> de <b>CARACAS</b> para que puedas disfrutar de <b>INSPIRATED ¡Vide la experiencia!</b>
                     </div>
                   </td>
                 </tr>
@@ -207,7 +207,7 @@ function templates(status, { to, from, subject, html, ...other }) {
 
           <tr>
             <td align="Justify" style="color: #505050; font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
-              <b>${other.name}:</b> Para cualquier reclamo o información, puede comunicarse a traves de mensajedirecto por nuestro instagram y podremos ayudarle.</td>
+              <b>${other.name}:</b> Para cualquier reclamo o información, puede comunicarse a traves de mensaje directo por nuestro instagram y podremos ayudarle.</td>
           </tr>
 
           <tr><td height="25" style="font-size: 25px; line-height: 25px;">&nbsp;</td></tr>

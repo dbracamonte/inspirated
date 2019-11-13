@@ -12,7 +12,8 @@ import {
   Grid,
   FormControlLabel,
   Switch,
-  TextField
+  TextField,
+  Tooltip
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import TableHeader from '../tableHeader';
@@ -22,6 +23,10 @@ import ConfirmChangeStatus from '../confirmChangeStatus'
 import { onGetRegistered, updateRegistered } from '../../services/firebase/api';
 import { formatMoney, JSONToCSVConvertor, statusTickets, statuses } from '../../assets/utils';
 import ExportIcon from '../../components/exportIcon';
+import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import SendIcon from '@material-ui/icons/Send';
 
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -136,7 +141,7 @@ class TableRegistered extends React.Component {
   componentWillMount() {
     onGetRegistered('registered', data => {
       const registered = data.docs.map(doc => {
-        const { firstName, lastName, age, identity, code, ...other } = doc.data();
+        const { firstName, lastName, age, identity, code, status, delivered, ...other } = doc.data();
         return {
           id: doc.id,
           firstName,
@@ -144,6 +149,8 @@ class TableRegistered extends React.Component {
           age,
           identity,
           code,
+          status,
+          delivered,
           ...other
         }
       });
@@ -332,6 +339,7 @@ class TableRegistered extends React.Component {
       // { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true },
       { id: 'Company', numeric: false, disablePadding: false, label: 'Empresa.', show: true },
       { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true },
+      { id: 'status', numeric: false, disablePadding: false, label: 'Estado', show: true },
     ];
 
     if (tab === 1) {
@@ -341,6 +349,7 @@ class TableRegistered extends React.Component {
         { id: 'Company', numeric: false, disablePadding: false, label: 'Empresa.', show: true },
         { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true },
         { id: 'code', numeric: false, disablePadding: false, label: 'Código', show: true },
+        { id: 'status', numeric: false, disablePadding: false, label: 'Estado', show: true },
       ];
     }
 
@@ -358,7 +367,7 @@ class TableRegistered extends React.Component {
     const dataSelected = data.find(({ id }) => selected === id);
 
     let rows = this.getRows();
-    // console.log('TableRegisted STATE', this.state);
+    console.log('TableRegisted STATE', this.state.data.map(n => n.delivered));
 
     return (
       <>
@@ -477,10 +486,30 @@ class TableRegistered extends React.Component {
                           </TableCell>
                           <TableCell>{n.firstName} {n.lastName}</TableCell>
                           <TableCell>{n.age}</TableCell>
-                          {/* <TableCell>{n.identity}</TableCell> */}
                           <TableCell>{n.company}</TableCell>
                           <TableCell>{n.date}</TableCell>
                           {tab === 1 && (<TableCell>{n.code}</TableCell>)}
+                          <TableCell>
+                            {
+                              n.status === 'approved' ? n.delivered ?
+                                <Tooltip title="Entregada">
+                                  <SendIcon style={{ color: '#4caf50' }} />
+                                </Tooltip>
+                              :
+                                <Tooltip title="Aprobada">
+                                  <CheckCircleOutlineIcon style={{ color: '#4caf50' }} />
+                                </Tooltip>
+                              :
+                                n.status === 'rejected' ?
+                                <Tooltip title="Rechazada">
+                                  <HighlightOffIcon style={{color: '#f44336'}} />
+                                </Tooltip>
+                              :
+                                <Tooltip title="En espera">
+                                  <PauseCircleOutlineIcon style={{ color: '#cddc39'}} />
+                                </Tooltip>
+                            }
+                          </TableCell>
                         </TableRow>
                       );
                     })
