@@ -9,17 +9,14 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
-// import CodeIcon from "@material-ui/icons/Code";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
-// import DashboardIcon from "@material-ui/icons/Dashboard";
 import { Link } from "react-router-dom";
+import logo from "../../assets/img/logo-inspirated.png";
 
 const categories = [{
   children: [
     { id: "Registros", icon: <FormatListBulletedIcon />, to: "/registered", active: false },
-    // { id: "Códigos", icon: <CodeIcon />, to: "/codes", active: false },
     { id: "Precio del día", icon: <AttachMoneyIcon />, to: "/rateday", active: false },
-    // { id: "Totalizados", icon: <DashboardIcon />, to: "/stats", active: false }
   ],
   id: 'firtsChildren'
 }];
@@ -43,10 +40,11 @@ const styles = theme => ({
     paddingTop: 16,
     paddingBottom: 16
   },
-  firebase: {
-    fontSize: 24,
-    fontFamily: theme.typography.fontFamily,
-    color: theme.palette.common.white
+  contentLogo: {
+    padding: theme.spacing(1),
+  },
+  logo: {
+    margin:'auto'
   },
   itemActionable: {
     "&:hover": {
@@ -81,12 +79,12 @@ function Navigator(props) {
       <List disablePadding>
         <ListItem
           className={classNames(
-            classes.firebase,
+            classes.contentLogo,
             classes.item,
             classes.itemCategory
           )}
         >
-          INSPIRATED
+          <img src={logo} alt='inspirated' width={130} className={classes.logo} />
         </ListItem>
         {categories.map(({ id, children }) => (
           <React.Fragment key={id}>
@@ -113,7 +111,6 @@ function Navigator(props) {
                   <ListItemText
                     classes={{
                       primary: classes.itemPrimary,
-                      // textDense: classes.textDense
                     }}
                   >
                     {childId}

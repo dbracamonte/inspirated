@@ -22,7 +22,6 @@ import MoreInfo from '../moreInfo';
 import ConfirmChangeStatus from '../confirmChangeStatus'
 import { onGetRegistered, updateRegistered } from '../../services/firebase/api';
 import { formatMoney, JSONToCSVConvertor, statusTickets, statuses } from '../../assets/utils';
-import ExportIcon from '../../components/exportIcon';
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
@@ -339,7 +338,7 @@ class TableRegistered extends React.Component {
       // { id: 'identity', numeric: false, disablePadding: false, label: 'C.I.', show: true },
       { id: 'Company', numeric: false, disablePadding: false, label: 'Empresa.', show: true },
       { id: 'date', numeric: false, disablePadding: false, label: 'Fecha', show: true },
-      { id: 'status', numeric: false, disablePadding: false, label: 'Estado', show: true },
+      { id: 'status', numeric: false, disablePadding: true, label: 'Estado', show: true },
     ];
 
     if (tab === 1) {
@@ -377,21 +376,21 @@ class TableRegistered extends React.Component {
             onMouseDown={() => this.setState({ tab: 0 })}
             className={classes.tab}
           >
-            EN PROCESO
+            En Proceso
             </div>
           <div
             style={tab === 1 ? { color: '#fff', background: 'transparent', userSelect: 'none' } : {}}
             onMouseDown={() => this.setState({ tab: 1 })}
             className={classes.tab}
           >
-            APROBADAS
+            Aprobadas
             </div>
           <div
             style={tab === 2 ? { color: '#fff', background: 'transparent', userSelect: 'none' } : {}}
             onMouseDown={() => this.setState({ tab: 2 })}
             className={classes.tab}
           >
-            CANCELADAS
+            Canceladas
             </div>
         </div>
 
@@ -514,11 +513,6 @@ class TableRegistered extends React.Component {
                       );
                     })
                   }
-                  {/* {emptyRows > 0 && (
-                  <TableRow style={{ height: 49 * emptyRows }}>
-                    <TableCell colSpan={6} />
-                  </TableRow>
-                )} */}
                 </TableBody>
               </Table>
             </div>
@@ -560,7 +554,6 @@ class TableRegistered extends React.Component {
             <CircularProgress />
           </div>
         }
-        {/* <ExportIcon handleExportCSV={this.handleExportCSV} /> */}
       </>
     );
   }
