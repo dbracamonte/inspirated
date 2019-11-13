@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import Avatar from "@material-ui/core/Avatar";
-import Grid from "@material-ui/core/Grid";
-import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import {
+  AppBar,
+  Tooltip,
+  Avatar,
+  Grid,
+  Hidden,
+  IconButton,
+  Toolbar,
+  Typography
+} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { AuthContext } from '../../context/auth';
-import imgDefaultUser from '../../assets/img/imgDefaultUser.jpg';
+import { AuthContext } from "../../context/auth";
+import MenuIcon from "@material-ui/icons/Menu";
+import imgDefaultUser from "../../assets/img/imgDefaultUser.jpg";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -98,11 +101,14 @@ class Header extends Component {
                 </Typography>
               </Grid>
               <Grid className={classes.noPadding} item>
+                
                 <IconButton color="inherit" onClick={logOut} className={classes.iconButtonAvatar}>
-                  <Avatar
-                    className={classes.avatar}
-                    src={imgDefaultUser}
-                  />
+                  <Tooltip title="Cerrar sesión">
+                    <Avatar
+                      className={classes.avatar}
+                      src={imgDefaultUser}
+                    />
+                  </Tooltip>
                 </IconButton>
               </Grid>
             </Grid>

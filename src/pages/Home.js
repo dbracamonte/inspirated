@@ -64,7 +64,7 @@ function HomePage() {
               Speaker / Psicólogo
             </Typography>
             <Typography variant="subtitle2">
-              <a href="https://www.instagram.com/dario.isea" target='_blank' className={classes.link}>
+              <a href="https://www.instagram.com/dario.isea" target='_blank' rel="noopener noreferrer"className={classes.link}>
                 @DARIO.ISEA
               </a>
             </Typography>

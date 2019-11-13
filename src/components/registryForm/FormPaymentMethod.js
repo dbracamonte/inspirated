@@ -17,8 +17,8 @@ const banks = ['Venezuela', 'Banesco', 'Provincial', 'Mercantil', 'Bicentenario'
 
 function FormPaymentMethod(props) {
 
-  const { values, handleChange, handleCheckChange, nextStep, prevStep, handleFileURL } = props;
-  const { applyCode, rateDayBs, rateDayUSD, paymentMethodType, paymentAmount, paymentDate, paymentRef, issuingBank, receivingBank, tickets, acceptTerms } = values;
+  const { values, handleChange, handleCheckChange, handleFileURL } = props;
+  const { applyCode, rateDayBs, paymentMethodType, paymentAmount, paymentDate, paymentRef, issuingBank, receivingBank, tickets, acceptTerms } = values;
   const [open, setOpen] = useState(false);
 
   const handleClose = (event, reason) => {

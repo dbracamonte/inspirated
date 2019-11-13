@@ -2,16 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
+import {
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText
+} from "@material-ui/core";
 import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { Link } from "react-router-dom";
-import logo from "../../assets/img/logo-inspirated.png";
+import logo from "../../assets/img/logo-inspirated-light.png";
 
 const categories = [{
   children: [
@@ -23,8 +25,8 @@ const categories = [{
 
 const styles = theme => ({
   categoryHeader: {
-    paddingTop: 16,
-    paddingBottom: 16
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2)
   },
   categoryHeaderPrimary: {
     color: theme.palette.common.white
@@ -37,11 +39,11 @@ const styles = theme => ({
   itemCategory: {
     backgroundColor: "#232f3e",
     boxShadow: "0 -1px 0 #404854 inset",
-    paddingTop: 16,
-    paddingBottom: 16
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2)
   },
   contentLogo: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(2),
   },
   logo: {
     margin:'auto'

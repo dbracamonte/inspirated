@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Snackbar from '@material-ui/core/Snackbar';
-import withStyles from '@material-ui/styles/withStyles';
-import { Typography, Chip } from '@material-ui/core';
-import { formatMoney } from '../../assets/utils';
+import { Grid, Button, TextField, Snackbar } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 
 const styles = () => ({
   submit: {
@@ -25,8 +20,8 @@ const styles = () => ({
 
 function FormMain(props) {
 
-  const { values, handleChange, classes, handleNext, handleBack, step } = props;
-  const { rateDayBs, rateDayUSD, firstName, lastName, age, identity, phoneNumber, email, paymentMethodType, company, position } = values;
+  const { values, handleChange, handleNext } = props;
+  const { firstName, lastName, age, phoneNumber, email, company, position } = values;
   const [open, setOpen] = useState(false);
 
   const handleClose = (event, reason) => {
@@ -48,130 +43,122 @@ function FormMain(props) {
   return (
     <React.Fragment>
       <Grid container spacing={3}>
-      {/* <Grid item xs={12}>
-        <Typography variant="h6">
-          Datos del responsable
-        </Typography>
-        <Typography style={{ color: '#ff6e00' }} variant="subtitle2">
-          El responsable será la persona aurotizada para retirar las manillas y recibirá al correo el estatus de la compra.
-        </Typography>
-      </Grid> */}
-      <Grid item xs={12} sm={6}>
-        <TextField
-          variant="outlined"
-          required
-          fullWidth
-          id="firstName"
-          label="Nombre"
-          name="firstName"
-          autoFocus
-          onChange={handleChange}
-          defaultValue={firstName}
-        />
+        <Grid item xs={12} sm={6}>
+          <TextField
+            variant="outlined"
+            required
+            fullWidth
+            id="firstName"
+            label="Nombre"
+            name="firstName"
+            autoFocus
+            onChange={handleChange}
+            defaultValue={firstName}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            variant="outlined"
+            required
+            fullWidth
+            id="lastName"
+            label="Apellido"
+            name="lastName"
+            onChange={handleChange}
+            defaultValue={lastName}
+          />
+        </Grid>
+        <Grid item xs={3} sm={4}>
+          <TextField
+            variant="outlined"
+            required
+            fullWidth
+            id="age"
+            label="Edad"
+            name="age"
+            type="number"
+            onChange={handleChange}
+            defaultValue={age}
+          />
+        </Grid>
+        <Grid item xs={9} sm={8}>
+          <TextField
+            variant="outlined"
+            required
+            fullWidth
+            id="phoneNumber"
+            label="Número telefónico"
+            name="phoneNumber"
+            type="number"
+            onChange={handleChange}
+            defaultValue={phoneNumber}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            variant="outlined"
+            required
+            fullWidth
+            id="email"
+            label="Correo electrónico"
+            name="email"
+            type="email"
+            onChange={handleChange}
+            defaultValue={email}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            variant="outlined"
+            fullWidth
+            id="company"
+            label="Empresa"
+            name="company"
+            onChange={handleChange}
+            defaultValue={company}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            variant="outlined"
+            fullWidth
+            id="position"
+            label="Cargo"
+            name="position"
+            onChange={handleChange}
+            defaultValue={position}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={handleContinue}
+          >
+            Continuar
+          </Button>
+        </Grid>
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <TextField
-          variant="outlined"
-          required
-          fullWidth
-          id="lastName"
-          label="Apellido"
-          name="lastName"
-          onChange={handleChange}
-          defaultValue={lastName}
-        />
-      </Grid>
-      <Grid item xs={3} sm={4}>
-        <TextField
-          variant="outlined"
-          required
-          fullWidth
-          id="age"
-          label="Edad"
-          name="age"
-          type="number"
-          onChange={handleChange}
-          defaultValue={age}
-        />
-      </Grid>
-      <Grid item xs={9} sm={8}>
-        <TextField
-          variant="outlined"
-          required
-          fullWidth
-          id="phoneNumber"
-          label="Número telefónico"
-          name="phoneNumber"
-          type="number"
-          onChange={handleChange}
-          defaultValue={phoneNumber}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          variant="outlined"
-          required
-          fullWidth
-          id="email"
-          label="Correo electrónico"
-          name="email"
-          type="email"
-          onChange={handleChange}
-          defaultValue={email}
-        />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <TextField
-          variant="outlined"
-          fullWidth
-          id="company"
-          label="Empresa"
-          name="company"
-          onChange={handleChange}
-          defaultValue={company}
-        />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <TextField
-          variant="outlined"
-          fullWidth
-          id="position"
-          label="Cargo"
-          name="position"
-          onChange={handleChange}
-          defaultValue={position}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <Button
-          fullWidth
-          variant="contained"
-          color="primary"
-          onClick={handleContinue}
-        >
-          Continuar
-        </Button>
-      </Grid>
-    </Grid>
-    <Snackbar
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'center',
-      }}
-      open={open}
-      autoHideDuration={5000}
-      onClose={handleClose}
-      ContentProps={{
-        'aria-describedby': 'message-id',
-      }}
-      message={<span id="message-id">Los campos con asterisco (*) con obligatorios.</span>}
-      action={[
-        <Button key="omit" color="secondary" size="small" onClick={handleClose}>
-          Omitir
-        </Button>
-      ]}
-    />
-  </React.Fragment>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        open={open}
+        autoHideDuration={5000}
+        onClose={handleClose}
+        ContentProps={{
+          'aria-describedby': 'message-id',
+        }}
+        message={<span id="message-id">Los campos con asterisco (*) con obligatorios.</span>}
+        action={[
+          <Button key="omit" color="secondary" size="small" onClick={handleClose}>
+            Omitir
+          </Button>
+        ]}
+      />
+    </React.Fragment>
   );
 }
 

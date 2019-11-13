@@ -1,16 +1,11 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
+import { Typography, Dialog, Button, IconButton } from '@material-ui/core';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
-import IconButton from '@material-ui/core/IconButton';
+import MuiDialogActions from '@material-ui/core/DialogActions';
 import CloseIcon from '@material-ui/icons/Close';
 import PictureModal from '../pictureModal';
-import Button from '@material-ui/core/Button';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import { statusTickets } from '../../assets/utils';
-import { formatMoney } from '../../assets/utils';
-import { Grid, Paper, Toolbar, Table, TableBody, TableRow, TableCell, Typography } from '@material-ui/core';
 
 const DialogActions = withStyles(theme => ({
   root: {

@@ -16,9 +16,8 @@ import {
 } from "@material-ui/core";
 import Check from "@material-ui/icons/Check";
 import RegistryForm from "../../components/registryForm";
-import { getRate } from "../../services/firebase/api";
-import { formatMoney } from "../../assets/utils";
 import Success from "../../components/registryForm/Success";
+import { getRate } from "../../services/firebase/api";
 import logo from "../../assets/img/logo-inspirated.png";
 
 const QontoConnector = withStyles({
@@ -158,9 +157,6 @@ export default function RegistryStepper() {
       {activeStep === steps.length ? (
         <>
           <Success/>
-          {/* <Typography className={classes.instructions}>
-            All steps completed - you&apos;re finished
-          </Typography> */}
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Button

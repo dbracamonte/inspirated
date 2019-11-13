@@ -3,15 +3,11 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import FormUserDetails from './FormUserDetails';
 import FormPayment from './FormPayment';
-import FormPaymentMethod from './FormPaymentMethod';
 import FormHelpToKnowYou from './FormHelpToKnowYou';
 import Summary from './Summary';
-import Confirm from './Confirm';
 import Success from './Success';
 import Error from './Error';
-import { createRegistered, updateRegistered } from '../../services/firebase/api';
-import { getRate } from '../../services/firebase/api';
-import { arrayPartitions } from '../../assets/utils';
+import { createRegistered } from '../../services/firebase/api';
 
 const styles = theme => ({
   form: {
@@ -83,7 +79,7 @@ export class RegistrationForm extends Component {
   handleConfirm = e => {
     e.preventDefault();
     const { handleNext } = this.props;
-    const { step, paymentMethodType, paymentAmount, paymentDate, paymentRef, issuingBank, receivingBank, fileURL, tickets, acceptTerms, date, firstName, lastName, age, email, identity, phoneNumber, company, position, whereMeetUs, specification, paymentMethod, bank, reference, autoFill } = this.state;
+    const { fileURL, date, firstName, lastName, age, email, phoneNumber, company, position, whereMeetUs, specification, paymentMethod, bank, reference } = this.state;
 
     // setLoading(true);
     this.setState({ loading: true });
@@ -109,7 +105,6 @@ export class RegistrationForm extends Component {
       status: "waiting"
     })
       .then(async () => {
-        // setLoading(false);
         this.setState({ loading: false });
         handleNext();
       })
@@ -118,7 +113,6 @@ export class RegistrationForm extends Component {
         console.error("Error adding document: ", error);
       });
 
-    // setLoading(false);
     this.setState({ loading: false });
 
   };

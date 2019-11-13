@@ -11,13 +11,6 @@ const transporter = nodemailer.createTransport({
     user: "inspirated.darioisea@gmail.com",
       pass: "inspira-ted."
   }
-  // host: "smtp.hostinger.com",
-  // port: 587,
-  // secure: true, // use TLS
-  // auth: {
-  //   user: "info@darioisea.com",
-  //   pass: "123456789"
-  // }
 });
 
 exports.sendMail = https.onRequest((req, res) => {

@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import { Paper } from '@material-ui/core';
-import Snackbar from '@material-ui/core/Snackbar';
+import {
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+  Grid,
+  Button,
+  TextField,
+  Paper,
+  Snackbar,
+  Typography
+} from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
-import { Typography, Chip } from '@material-ui/core';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import UploadFile from '../uploadFile';
 
 const styles = theme => ({

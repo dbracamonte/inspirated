@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import { createRegistered, updateRegistered } from '../../services/firebase/api';
-import { makeStyles, Paper, Toolbar, Table, TableBody, TableRow, TableCell, Typography } from '@material-ui/core';
-import BookmarksIcon from '@material-ui/icons/Bookmarks';
-import PictureModal from '../pictureModal';
-import { formatMoney } from '../../assets/utils';
+import React from "react";
+import {
+  makeStyles,
+  Paper,
+  Toolbar,
+  Grid,
+  Table,
+  TableBody,
+  TableRow,
+  TableCell,
+  Typography,
+  Button
+} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,8 +35,7 @@ function Summary(props) {
 
   const classes = useStyles();
   const { values, handleConfirm, handleBack } = props;
-  // const [laoding, setLoading] = useState(false);
-  const { applyCode, applyCodePlatea, code, codePlatea, codeData, codeDataPlatea, paymentMethodType, paymentAmount, paymentDate, paymentRef, issuingBank, receivingBank, tickets, firstName, lastName, age, email, identity, phoneNumber, company, position, paymentMethod, bank, reference, fileURL, users } = values;
+  const { firstName, lastName, age, email, phoneNumber, company, position, paymentMethod, bank, reference, fileURL } = values;
 
   return (
     <React.Fragment>
@@ -106,7 +110,7 @@ function Summary(props) {
                 <TableRow> {/* key={fileURL} */}
                   <TableCell>Imagen</TableCell>
                   <TableCell>
-                    <a href={fileURL} target='_blank' className={classes.link}>
+                    <a href={fileURL} target='_blank' rel="noopener noreferrer" className={classes.link}>
                       Ver
                     </a>
                   </TableCell>

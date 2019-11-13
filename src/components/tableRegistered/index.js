@@ -21,7 +21,7 @@ import TableToolbar from '../tableToolbar';
 import MoreInfo from '../moreInfo';
 import ConfirmChangeStatus from '../confirmChangeStatus'
 import { onGetRegistered, updateRegistered } from '../../services/firebase/api';
-import { formatMoney, JSONToCSVConvertor, statusTickets, statuses } from '../../assets/utils';
+import { JSONToCSVConvertor, statusTickets, statuses } from '../../assets/utils';
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
@@ -366,7 +366,7 @@ class TableRegistered extends React.Component {
     const dataSelected = data.find(({ id }) => selected === id);
 
     let rows = this.getRows();
-    console.log('TableRegisted STATE', this.state.data.map(n => n.delivered));
+    // console.log('TableRegisted STATE', this.state.data.map(n => n.delivered));s
 
     return (
       <>
